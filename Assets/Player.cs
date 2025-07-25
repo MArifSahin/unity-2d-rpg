@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
 
+    public Vector2 moveInput { get; private set; }
+
     private void Awake()
     {
         stateMachine = new StateMachine();
@@ -18,8 +20,12 @@ public class Player : MonoBehaviour
         moveState = new Player_MoveState(this, stateMachine, "move");
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         input.Enable();
+
+        input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        input.Player.Movement.canceled += ctx => moveInput = Vector2.zero; 
     }
 
     private void OnDisable() {
