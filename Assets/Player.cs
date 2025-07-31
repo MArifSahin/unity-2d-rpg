@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class Player : MonoBehaviour
     public Vector2 moveInput { get; private set; }
 
     [Header("Movement Details")]
-    public float moveSpeed;
+    public float moveSpeed = 8;
+
+    private bool facingRight = true;
 
     private void Awake()
     {
@@ -57,6 +60,20 @@ public class Player : MonoBehaviour
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
+        HandleFlip(xVelocity);
     }
 
+    private void Flip()
+    {
+        transform.Rotate(0, 180, 0);
+        facingRight = !facingRight;
+    }
+
+    private void HandleFlip(float xVelocity)
+    {
+        if ((xVelocity >= 0 && !facingRight) || (xVelocity < 0 && facingRight))
+        {
+            Flip();
+        }
+    }
 }
