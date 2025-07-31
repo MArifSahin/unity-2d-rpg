@@ -16,21 +16,30 @@ public class Player : MonoBehaviour
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
     public Player_FallState fallState { get; private set; }
+    public Player_WallSlideState wallSlideState { get; private set; }
+    public Player_WallJumpState wallJumpState { get; private set; }
 
 
     [Header("Movement Details")]
     public float moveSpeed = 8;
     public float jumpForce = 5;
+    public Vector2 wallJumpForce;
+
     [Range(0, 1)]
     public float inAirMoveMultiplier = .7f; //should be from 0 to 1
+    [Range(0, 1)]
+    public float wallSlideSlowMultiplier = .7f;
     private bool facingRight = true;
+    public int facingDirection = 1;
     public Vector2 moveInput { get; private set; }
 
 
     [Header("Collision Detection")]
     [SerializeField] private float groundCheckDistance;
+    [SerializeField] private float wallCheckDistance;
     [SerializeField] public bool groundDetected { get; private set; }
     [SerializeField] private LayerMask whatIsGround;
+    public bool wallDetected { get; private set; }
 
     private void Awake()
     {
@@ -44,6 +53,8 @@ public class Player : MonoBehaviour
         moveState = new Player_MoveState(this, stateMachine, "move");
         jumpState = new Player_JumpState(this, stateMachine, "jumpFall");
         fallState = new Player_FallState(this, stateMachine, "jumpFall");
+        wallSlideState = new Player_WallSlideState(this, stateMachine, "wallSlide");
+        wallJumpState = new Player_WallJumpState(this, stateMachine, "jumpFall");
     }
 
     private void OnEnable()
@@ -76,15 +87,16 @@ public class Player : MonoBehaviour
         HandleFlip(xVelocity);
     }
 
-    private void Flip()
+    public void Flip()
     {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
+        facingDirection = facingDirection * -1;
     }
 
     private void HandleFlip(float xVelocity)
     {
-        if ((xVelocity >= 0 && !facingRight) || (xVelocity < 0 && facingRight))
+        if ((xVelocity > 0 && !facingRight) || (xVelocity < 0 && facingRight))
         {
             Flip();
         }
@@ -93,10 +105,12 @@ public class Player : MonoBehaviour
     private void HandleCollisionDetection()
     {
         groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
+        wallDetected = Physics2D.Raycast(transform.position, Vector2.right * facingDirection, wallCheckDistance, whatIsGround);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(wallCheckDistance * facingDirection, 0));
     }
 }
