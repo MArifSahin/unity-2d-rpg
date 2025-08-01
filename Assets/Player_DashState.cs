@@ -13,7 +13,7 @@ public class Player_DashState : EntityState
     {
         base.Enter();
 
-        dashDirection = player.facingDirection;
+        dashDirection = player.moveInput.x != 0 ? (int)player.moveInput.x : player.facingDirection;
         stateTimer = player.dashDuration;
 
         originalGravityScale = rb.gravityScale;

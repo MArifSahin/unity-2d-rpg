@@ -10,7 +10,6 @@ public class Player_WallJumpState : EntityState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Wall Jump state enter");
         player.SetVelocity(player.wallJumpForce.x * -player.facingDirection, player.wallJumpForce.y);
     }
 
