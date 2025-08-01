@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "7b81f0ac-5222-4091-a35a-b861d7b99aec",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -108,6 +117,17 @@
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd891fef-c0f4-4dd2-b06e-b6415bb5307f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
