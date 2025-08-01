@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 8;
     public float jumpForce = 5;
     public Vector2 wallJumpForce;
+    
 
     [Range(0, 1)]
     public float inAirMoveMultiplier = .7f; //should be from 0 to 1
