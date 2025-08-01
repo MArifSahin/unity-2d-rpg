@@ -53,7 +53,6 @@ public class Player_BasicAttackState : EntityState
         base.Exit();
         comboIndex++;
         lastTimeAttacked = Time.time;
-        Debug.Log("Exit -> " + comboIndex);
     }
 
     private void HandleStateExit()
