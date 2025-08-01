@@ -474,6 +474,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &686754902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686754903}
+  m_Layer: 0
+  m_Name: SecondaryWallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686754903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686754902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.427, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792038048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750185973
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +965,7 @@ MonoBehaviour:
   - {x: 3, y: 1.5}
   - {x: 1, y: 1}
   - {x: 4, y: 4}
-  jumpAttackVelocity: {x: 0, y: 0}
+  jumpAttackVelocity: {x: 3, y: 2}
   attackVelocityDuration: 0.1
   comboResetTime: 1
   moveSpeed: 8
@@ -945,11 +976,13 @@ MonoBehaviour:
   facingDirection: 1
   dashDuration: 0.25
   dashSpeed: 20
-  groundCheckDistance: 0.88
-  wallCheckDistance: 0.5
+  groundCheckDistance: 0.85
+  wallCheckDistance: 0.42
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  primaryWallCheck: {fileID: 1932506227}
+  secondaryWallCheck: {fileID: 686754903}
 --- !u!4 &1792038048
 Transform:
   m_ObjectHideFlags: 0
@@ -964,6 +997,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 750185974}
+  - {fileID: 1932506227}
+  - {fileID: 686754903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1792038049
@@ -1030,6 +1065,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.23294365}
   m_Size: {x: 0.8061991, y: 2.1085608}
   m_Direction: 0
+--- !u!1 &1932506226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932506227}
+  m_Layer: 0
+  m_Name: PrimaryWallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1932506227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932506226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.797, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792038048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
