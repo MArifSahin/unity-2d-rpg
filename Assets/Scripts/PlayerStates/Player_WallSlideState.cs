@@ -12,17 +12,15 @@ public class Player_WallSlideState : EntityState
         HandleWallSlide();
 
         if (input.Player.Jump.WasPressedThisFrame())
-        {
             stateMachine.ChangeState(player.wallJumpState);
-        }
-
         if (player.wallDetected == false)
-        {
             stateMachine.ChangeState(player.fallState);
-        }
         if (player.groundDetected)
         {
             stateMachine.ChangeState(player.idleState);
+
+            if (player.facingDirection != player.moveInput.x)
+                player.Flip();
         }
 
     }
@@ -30,12 +28,8 @@ public class Player_WallSlideState : EntityState
     private void HandleWallSlide()
     {
         if (player.moveInput.y < 0)
-        {
             player.SetVelocity(player.moveInput.x, rb.linearVelocityY);
-        }
         else
-        {
             player.SetVelocity(player.moveInput.x, rb.linearVelocityY * player.wallSlideSlowMultiplier);
-        }
     }
 }
