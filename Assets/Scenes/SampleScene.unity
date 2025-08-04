@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 865392138}
   - component: {fileID: 865392140}
   - component: {fileID: 865392139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,6 +1020,11 @@ MonoBehaviour:
   idleTime: 2
   moveSpeed: 1.4
   moveAnimSpeedMultiplier: 1
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  playerCheck: {fileID: 865392137}
+  playerCheckDistance: 10
 --- !u!70 &865392139
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -31665,13 +31670,13 @@ GameObject:
   - component: {fileID: 1792038047}
   - component: {fileID: 1792038049}
   - component: {fileID: 1792038050}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1792038047
 MonoBehaviour:
   m_ObjectHideFlags: 0
