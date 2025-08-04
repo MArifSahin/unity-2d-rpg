@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour
     {
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         HandleCollisionDetection();
         stateMachine.UpdateActiveState();
@@ -59,7 +59,7 @@ public class Entity : MonoBehaviour
         facingDirection = facingDirection * -1;
     }
 
-    private void HandleFlip(float xVelocity)
+    public void HandleFlip(float xVelocity)
     {
         if ((xVelocity > 0 && !facingRight) || (xVelocity < 0 && facingRight))
         {
