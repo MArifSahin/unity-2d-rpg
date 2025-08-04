@@ -24,8 +24,6 @@ public class ParallaxBackground : MonoBehaviour
         float cameraLeftEdge = currentCameraPositionX - cameraHalfWidth;
         float cameraRightEdge = currentCameraPositionX + cameraHalfWidth;
 
-        Debug.Log("lastCameraPositionX -> " + lastCameraPositionX);
-        Debug.Log("currentCameraPositionX -> " + currentCameraPositionX);
         foreach (ParallaxLayer parallaxLayer in backgroundLayers)
         {
             parallaxLayer.Move(distanceToMove);

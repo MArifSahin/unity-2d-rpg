@@ -15,10 +15,7 @@ public class Player_BasicAttackState : PlayerState
     public Player_BasicAttackState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
         if (comboLimit != player.attackVelocity.Length)
-        {
-            Debug.LogWarning("I've adjusted combo limit, according to atack velocity array!");
             comboLimit = player.attackVelocity.Length;
-        }
     }
 
     public override void Enter()
