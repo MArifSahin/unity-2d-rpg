@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy_Health : Entity_Health
 {
+
     // calling in Awake method is better for performance
     private Enemy enemy => GetComponent<Enemy>();
 
