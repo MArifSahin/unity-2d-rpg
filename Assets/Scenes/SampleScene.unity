@@ -1192,6 +1192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   isDead: 0
+  knockbackPower: {x: 2.5, y: 2.5}
+  knockbackDuration: 0.2
 --- !u!114 &865392143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31909,6 +31911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   isDead: 0
+  knockbackPower: {x: 2.5, y: 2.5}
+  knockbackDuration: 0.2
 --- !u!114 &1792038053
 MonoBehaviour:
   m_ObjectHideFlags: 0

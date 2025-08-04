@@ -23,6 +23,9 @@ public class Entity : MonoBehaviour
     [SerializeField] private Transform secondaryWallCheck;
     public bool wallDetected { get; private set; }
 
+    private bool isKnocked;
+    private Coroutine knockbackCoroutine;
+
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -46,8 +49,29 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.AnimationTrigger();
     }
 
+    public void ReceiveKnockback(Vector2 knockback, float duration)
+    {
+        if (knockbackCoroutine != null)
+        {
+            StopCoroutine(knockbackCoroutine);
+        }
+        knockbackCoroutine = StartCoroutine(KnockbackCoroutine(knockback, duration));
+    }
+
+    private IEnumerator KnockbackCoroutine(Vector2 knockbackDirection, float knockbackDuration)
+    {
+        isKnocked = true;
+        rb.linearVelocity = knockbackDirection;
+
+        yield return new WaitForSeconds(knockbackDuration);
+
+        rb.linearVelocity = Vector2.zero;
+        isKnocked = false;
+    }
+
     public void SetVelocity(float xVelocity, float yVelocity)
     {
+        if (isKnocked) return;
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }
