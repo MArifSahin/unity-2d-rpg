@@ -55,7 +55,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         int direction = transform.position.x < damageDealer.position.x ? -1 : 1;
         Vector2 knockBack = IsHeavyDamage(damage) ? heavyDamageKnockbackPower : knockbackPower;
-        return knockBack;
+        return knockBack * direction;
     }
 
     private float CalculateKnockbackDuration(float damage) => IsHeavyDamage(damage) ? heavyKnockbackDuration : knockbackDuration;
