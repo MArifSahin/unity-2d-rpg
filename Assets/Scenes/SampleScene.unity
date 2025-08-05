@@ -1674,8 +1674,8 @@ GameObject:
   - component: {fileID: 865392140}
   - component: {fileID: 865392139}
   - component: {fileID: 865392141}
-  - component: {fileID: 865392142}
   - component: {fileID: 865392143}
+  - component: {fileID: 865392142}
   - component: {fileID: 865392144}
   m_Layer: 8
   m_Name: Enemy_Skeleton
@@ -1874,8 +1874,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth:
     baseValue: 100
-  vitality:
-    baseValue: 0
+  major:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 0
+  offense:
+    damage:
+      baseValue: 10
+    critPower:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireResistance:
+      baseValue: 0
+    iceResistance:
+      baseValue: 0
+    lightningResistance:
+      baseValue: 0
 --- !u!1 &865919288
 GameObject:
   m_ObjectHideFlags: 0
@@ -33755,8 +33786,8 @@ GameObject:
   - component: {fileID: 1792038054}
   - component: {fileID: 1792038049}
   - component: {fileID: 1792038050}
-  - component: {fileID: 1792038052}
   - component: {fileID: 1792038053}
+  - component: {fileID: 1792038052}
   - component: {fileID: 1792038055}
   m_Layer: 7
   m_Name: Player
@@ -33953,8 +33984,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth:
     baseValue: 100
-  vitality:
-    baseValue: 7
+  major:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 10
+  offense:
+    damage:
+      baseValue: 10
+    critPower:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireResistance:
+      baseValue: 0
+    iceResistance:
+      baseValue: 0
+    lightningResistance:
+      baseValue: 0
 --- !u!1 &1827407065
 GameObject:
   m_ObjectHideFlags: 0
