@@ -1885,7 +1885,7 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 10
+      baseValue: 20
     critPower:
       baseValue: 0
     critChance:
@@ -34010,7 +34010,7 @@ MonoBehaviour:
     armor:
       baseValue: 0
     evasion:
-      baseValue: 0
+      baseValue: 80
     fireResistance:
       baseValue: 0
     iceResistance:
