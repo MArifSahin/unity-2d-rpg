@@ -236,6 +236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
   onDamageVFXDuration: 0.2
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVFXPrefab: {fileID: 0}
 --- !u!114 &57004617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1312,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  vfx: {fileID: 0}
   targetCheck: {fileID: 822083286}
   targetCheckRadius: 1
   whatIsTarget:
@@ -1351,6 +1354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
   onDamageVFXDuration: 0.2
+  hitVfxColor: {r: 0.5377358, g: 0.50476146, b: 0.50476146, a: 1}
+  hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
   attackAlert: {fileID: 1124075211}
 --- !u!1 &969069165
 GameObject:
@@ -1488,6 +1493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
   onDamageVFXDuration: 0.2
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVFXPrefab: {fileID: 0}
 --- !u!1 &1124075211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
   onDamageVFXDuration: 0.2
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVFXPrefab: {fileID: 0}
 --- !u!114 &1393093527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32924,6 +32933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
   onDamageVFXDuration: 0.15
+  hitVfxColor: {r: 0.5820202, g: 0.6037736, b: 0.093983635, a: 1}
+  hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
 --- !u!114 &1792038054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32937,6 +32948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  vfx: {fileID: 0}
   targetCheck: {fileID: 344909316}
   targetCheckRadius: 1
   whatIsTarget:

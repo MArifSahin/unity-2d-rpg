@@ -3,11 +3,17 @@ using UnityEngine;
 public class Entity_Combat : MonoBehaviour
 {
     public float damage = 10f;
+    public Entity_VFX vfx;
 
     [Header("Target Detection")]
     [SerializeField] private Transform targetCheck;
     [SerializeField] private float targetCheckRadius = 1f;
     [SerializeField] private LayerMask whatIsTarget;
+
+    private void Awake()
+    {
+        vfx = GetComponent<Entity_VFX>();
+    }
 
     public void PerformAttack()
     {
@@ -15,7 +21,11 @@ public class Entity_Combat : MonoBehaviour
         foreach (var target in GetDetectedColliders())
         {
             IDamageable damageable = target.GetComponent<IDamageable>();
+
+            if (damageable == null) continue; //skip target go to next target
+
             damageable?.TakeDamage(damage, transform);
+            vfx.CreateOnHitVFX(target.transform);
         }
     }
 
