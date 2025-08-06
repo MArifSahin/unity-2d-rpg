@@ -238,6 +238,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.2
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVFXPrefab: {fileID: 0}
+  critHixVFXPrefab: {fileID: 0}
 --- !u!114 &57004617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,7 +1818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4b77679dd10454285f8f59ebbe6890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   vfx: {fileID: 0}
   targetCheck: {fileID: 822083286}
   targetCheckRadius: 1
@@ -1859,6 +1859,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.2
   hitVfxColor: {r: 0.5377358, g: 0.50476146, b: 0.50476146, a: 1}
   hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
+  critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
   attackAlert: {fileID: 1124075211}
 --- !u!114 &865392144
 MonoBehaviour:
@@ -1873,7 +1874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 100
+    baseValue: 10000
   major:
     strength:
       baseValue: 0
@@ -2195,6 +2196,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.2
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVFXPrefab: {fileID: 0}
+  critHixVFXPrefab: {fileID: 0}
 --- !u!1 &1095942915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2721,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.2
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVFXPrefab: {fileID: 0}
+  critHixVFXPrefab: {fileID: 0}
 --- !u!114 &1393093527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33950,6 +33953,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.15
   hitVfxColor: {r: 0.5820202, g: 0.6037736, b: 0.093983635, a: 1}
   hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
+  critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
 --- !u!114 &1792038054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33962,7 +33966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1422a0622930646a68d12f0c89a0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   vfx: {fileID: 0}
   targetCheck: {fileID: 344909316}
   targetCheckRadius: 1
@@ -33983,7 +33986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 100
+    baseValue: 10000
   major:
     strength:
       baseValue: 0
@@ -33997,9 +34000,9 @@ MonoBehaviour:
     damage:
       baseValue: 10
     critPower:
-      baseValue: 0
+      baseValue: 250
     critChance:
-      baseValue: 0
+      baseValue: 100
     fireDamage:
       baseValue: 0
     iceDamage:
@@ -34010,7 +34013,7 @@ MonoBehaviour:
     armor:
       baseValue: 0
     evasion:
-      baseValue: 80
+      baseValue: 0
     fireResistance:
       baseValue: 0
     iceResistance:

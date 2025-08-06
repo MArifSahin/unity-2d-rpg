@@ -4,6 +4,7 @@ using UnityEngine;
 public class Entity_VFX : MonoBehaviour
 {
     private SpriteRenderer sr;
+    private Entity entity;
 
     [Header("On Taking Damage VFX")]
     [SerializeField] private Material onDamageMaterial;
@@ -14,17 +15,27 @@ public class Entity_VFX : MonoBehaviour
     [Header("On Doing Damage VFX")]
     [SerializeField] private Color hitVfxColor = Color.white;
     [SerializeField] private GameObject hitVFXPrefab;
+    [SerializeField] private GameObject critHixVFXPrefab;
 
     private void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         originalMaterial = sr.material;
+        entity = GetComponent<Entity>();
     }
 
-    public void CreateOnHitVFX(Transform target)
+    public void CreateOnHitVFX(Transform target, bool isCrit)
     {
-        GameObject vfx = Instantiate(hitVFXPrefab, target.position, Quaternion.identity);
-        vfx.GetComponentInChildren<SpriteRenderer>().color = hitVfxColor;
+        GameObject hitPrefab = isCrit ? critHixVFXPrefab : hitVFXPrefab;
+        GameObject vfx = Instantiate(hitPrefab, target.position, Quaternion.identity);
+
+        if (!isCrit)
+            vfx.GetComponentInChildren<SpriteRenderer>().color = hitVfxColor;
+
+        if (entity.facingDirection == -1 && isCrit)
+        {
+            vfx.transform.Rotate(0, 180, 0); // Rotate crit VFX for right-facing entities
+        }
     }
 
     public void PlayOnDamageVFX()

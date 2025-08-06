@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
-    public float damage = 10f;
     public Entity_VFX vfx;
+    private Entity_Stats stats;
 
     [Header("Target Detection")]
     [SerializeField] private Transform targetCheck;
@@ -13,6 +15,7 @@ public class Entity_Combat : MonoBehaviour
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
+        stats = GetComponent<Entity_Stats>();
     }
 
     public void PerformAttack()
@@ -21,11 +24,12 @@ public class Entity_Combat : MonoBehaviour
         foreach (var target in GetDetectedColliders())
         {
             IDamageable damageable = target.GetComponent<IDamageable>();
-
             if (damageable == null) continue; //skip target go to next target
+
+            float damage = stats.GetPhysicalDamage(out bool isCrit);
             bool targetGotHit = damageable.TakeDamage(damage, transform);
             if (targetGotHit)
-                vfx.CreateOnHitVFX(target.transform);
+                vfx.CreateOnHitVFX(target.transform, isCrit);
         }
     }
 
