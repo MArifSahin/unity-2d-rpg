@@ -19,9 +19,10 @@ public class Entity_VFX : MonoBehaviour
 
     [Header("Element Colors")]
     [SerializeField] private Color originalHitVfxColor = Color.white;
-    [SerializeField] private Color fireColor = Color.red;
-    [SerializeField] private Color iceColor = Color.cyan;  
-    [SerializeField] private Color lightningColor = Color.yellow;
+    //give hex values for colors
+    [SerializeField] private Color burnVFX = Color.red; // Warm orange
+    [SerializeField] private Color chillVFX = Color.cyan;  
+    [SerializeField] private Color shockVFX = Color.yellow;
 
     private void Awake()
     {
@@ -35,15 +36,15 @@ public class Entity_VFX : MonoBehaviour
     {
         if (element == ElementType.Ice)
         {
-            StartCoroutine(PlayStatusVFXCo(duration, iceColor));
+            StartCoroutine(PlayStatusVFXCo(duration, chillVFX));
         }
         else if (element == ElementType.Fire)
         {
-            StartCoroutine(PlayStatusVFXCo(duration, fireColor));
+            StartCoroutine(PlayStatusVFXCo(duration, burnVFX));
         }
         else if (element == ElementType.Lightning)
         {
-            StartCoroutine(PlayStatusVFXCo(duration, lightningColor));
+            StartCoroutine(PlayStatusVFXCo(duration, shockVFX));
         }
     }
 
@@ -88,13 +89,13 @@ public class Entity_VFX : MonoBehaviour
         switch (element)
         {
             case ElementType.Fire:
-                hitVfxColor = fireColor;
+                hitVfxColor = burnVFX;
                 break;
             case ElementType.Ice:
-                hitVfxColor = iceColor;
+                hitVfxColor = chillVFX;
                 break;
             case ElementType.Lightning:
-                hitVfxColor = lightningColor;
+                hitVfxColor = shockVFX;
                 break;
             default:
                 hitVfxColor = originalHitVfxColor; // Reset to original color for any other

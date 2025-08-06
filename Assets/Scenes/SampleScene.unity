@@ -240,9 +240,9 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   critHixVFXPrefab: {fileID: 0}
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  fireColor: {r: 1, g: 0, b: 0, a: 1}
-  iceColor: {r: 0, g: 1, b: 1, a: 1}
-  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  burnVFX: {r: 1, g: 0, b: 0, a: 1}
+  chillVFX: {r: 0, g: 1, b: 1, a: 1}
+  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &57004617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1864,13 +1864,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
   onDamageVFXDuration: 0.2
-  hitVfxColor: {r: 0.5377358, g: 0.50476146, b: 0.50476146, a: 1}
+  hitVfxColor: {r: 1, g: 0, b: 0, a: 1}
   hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
   critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  fireColor: {r: 1, g: 0, b: 0, a: 1}
-  iceColor: {r: 0, g: 1, b: 1, a: 1}
-  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  burnVFX: {r: 1, g: 0.31728896, b: 0.11792451, a: 1}
+  chillVFX: {r: 0, g: 1, b: 1, a: 1}
+  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 1124075211}
 --- !u!114 &865392144
 MonoBehaviour:
@@ -1897,7 +1897,7 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 10
+      baseValue: 0
     critPower:
       baseValue: 0
     critChance:
@@ -1905,7 +1905,7 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 100
     iceDamage:
       baseValue: 0
     lightningDamage:
@@ -2223,9 +2223,9 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   critHixVFXPrefab: {fileID: 0}
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  fireColor: {r: 1, g: 0, b: 0, a: 1}
-  iceColor: {r: 0, g: 1, b: 1, a: 1}
-  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  burnVFX: {r: 1, g: 0, b: 0, a: 1}
+  chillVFX: {r: 0, g: 1, b: 1, a: 1}
+  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1095942915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,9 +2752,9 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   critHixVFXPrefab: {fileID: 0}
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  fireColor: {r: 1, g: 0, b: 0, a: 1}
-  iceColor: {r: 0, g: 1, b: 1, a: 1}
-  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  burnVFX: {r: 1, g: 0, b: 0, a: 1}
+  chillVFX: {r: 0, g: 1, b: 1, a: 1}
+  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1393093527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33988,10 +33988,10 @@ MonoBehaviour:
   hitVfxColor: {r: 0.5820202, g: 0.6037736, b: 0.093983635, a: 1}
   hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
   critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
-  originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  fireColor: {r: 1, g: 0, b: 0, a: 1}
-  iceColor: {r: 0, g: 1, b: 1, a: 1}
-  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  originalHitVfxColor: {r: 1, g: 0, b: 0, a: 1}
+  burnVFX: {r: 1, g: 0.26166108, b: 0, a: 1}
+  chillVFX: {r: 0, g: 1, b: 1, a: 1}
+  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1792038054
 MonoBehaviour:
   m_ObjectHideFlags: 0
