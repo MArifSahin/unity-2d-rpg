@@ -239,6 +239,10 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVFXPrefab: {fileID: 0}
   critHixVFXPrefab: {fileID: 0}
+  originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  fireColor: {r: 1, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 1, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &57004617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,6 +1682,7 @@ GameObject:
   - component: {fileID: 865392143}
   - component: {fileID: 865392142}
   - component: {fileID: 865392144}
+  - component: {fileID: 865392145}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -1824,6 +1829,8 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
+  defaultDuration: 3
+  chillSlowMultiplier: 6.43
 --- !u!114 &865392142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1860,6 +1867,10 @@ MonoBehaviour:
   hitVfxColor: {r: 0.5377358, g: 0.50476146, b: 0.50476146, a: 1}
   hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
   critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
+  originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  fireColor: {r: 1, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 1, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 1124075211}
 --- !u!114 &865392144
 MonoBehaviour:
@@ -1910,6 +1921,18 @@ MonoBehaviour:
       baseValue: 0
     lightningResistance:
       baseValue: 0
+--- !u!114 &865392145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865392136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92730e461c2f5514e98c4fd9b6689254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &865919288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,6 +2222,10 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVFXPrefab: {fileID: 0}
   critHixVFXPrefab: {fileID: 0}
+  originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  fireColor: {r: 1, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 1, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1095942915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,6 +2751,10 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVFXPrefab: {fileID: 0}
   critHixVFXPrefab: {fileID: 0}
+  originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  fireColor: {r: 1, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 1, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1393093527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33794,6 +33825,7 @@ GameObject:
   - component: {fileID: 1792038053}
   - component: {fileID: 1792038052}
   - component: {fileID: 1792038055}
+  - component: {fileID: 1792038056}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -33956,6 +33988,10 @@ MonoBehaviour:
   hitVfxColor: {r: 0.5820202, g: 0.6037736, b: 0.093983635, a: 1}
   hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
   critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
+  originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  fireColor: {r: 1, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 1, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1792038054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33974,6 +34010,8 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
+  defaultDuration: 3
+  chillSlowMultiplier: 0.9
   counterRecovery: 0.1
 --- !u!114 &1792038055
 MonoBehaviour:
@@ -34010,7 +34048,7 @@ MonoBehaviour:
     fireDamage:
       baseValue: 0
     iceDamage:
-      baseValue: 0
+      baseValue: 100
     lightningDamage:
       baseValue: 0
   defense:
@@ -34024,6 +34062,18 @@ MonoBehaviour:
       baseValue: 0
     lightningResistance:
       baseValue: 0
+--- !u!114 &1792038056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792038046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92730e461c2f5514e98c4fd9b6689254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1827407065
 GameObject:
   m_ObjectHideFlags: 0

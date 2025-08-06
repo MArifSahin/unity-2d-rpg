@@ -17,11 +17,56 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private GameObject hitVFXPrefab;
     [SerializeField] private GameObject critHixVFXPrefab;
 
+    [Header("Element Colors")]
+    [SerializeField] private Color originalHitVfxColor = Color.white;
+    [SerializeField] private Color fireColor = Color.red;
+    [SerializeField] private Color iceColor = Color.cyan;  
+    [SerializeField] private Color lightningColor = Color.yellow;
+
     private void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         originalMaterial = sr.material;
+        originalHitVfxColor = hitVfxColor; // Store the original color for reset
         entity = GetComponent<Entity>();
+    }
+
+    public void PlayOnStatusVFX(float duration, ElementType element)
+    {
+        if (element == ElementType.Ice)
+        {
+            StartCoroutine(PlayStatusVFXCo(duration, iceColor));
+        }
+        else if (element == ElementType.Fire)
+        {
+            StartCoroutine(PlayStatusVFXCo(duration, fireColor));
+        }
+        else if (element == ElementType.Lightning)
+        {
+            StartCoroutine(PlayStatusVFXCo(duration, lightningColor));
+        }
+    }
+
+    private IEnumerator PlayStatusVFXCo(float duration, Color effectColor)
+    {
+        float tickInterval = 0.25f;
+        float timeHasPassed = 0f;
+
+        Color lightColor = effectColor * 1.2f;
+        Color darkColor = effectColor * 0.8f;
+
+        bool toggle = false;
+
+        while (timeHasPassed < duration)
+        {
+            sr.color = toggle ? lightColor : darkColor;
+            toggle = !toggle;
+
+            yield return new WaitForSeconds(tickInterval);
+            timeHasPassed += tickInterval;
+        }
+
+        sr.color = Color.white; // Reset color after effect ends
     }
 
     public void CreateOnHitVFX(Transform target, bool isCrit)
@@ -35,6 +80,25 @@ public class Entity_VFX : MonoBehaviour
         if (entity.facingDirection == -1 && isCrit)
         {
             vfx.transform.Rotate(0, 180, 0); // Rotate crit VFX for right-facing entities
+        }
+    }
+
+    public void UpdateOnHitColor(ElementType element)
+    {
+        switch (element)
+        {
+            case ElementType.Fire:
+                hitVfxColor = fireColor;
+                break;
+            case ElementType.Ice:
+                hitVfxColor = iceColor;
+                break;
+            case ElementType.Lightning:
+                hitVfxColor = lightningColor;
+                break;
+            default:
+                hitVfxColor = originalHitVfxColor; // Reset to original color for any other
+                break;
         }
     }
 

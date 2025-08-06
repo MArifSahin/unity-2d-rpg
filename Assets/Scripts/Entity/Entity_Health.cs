@@ -37,7 +37,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
         if (AttackEvaded())
         {
-            Debug.Log("Attack evaded!");
             return false;
         }
 
@@ -82,7 +81,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
     private void Die()
     {
         isDead = true;
-        Debug.Log("Entity has died.");
         entity.EntityDeath();
     }
 

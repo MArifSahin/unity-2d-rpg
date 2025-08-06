@@ -61,6 +61,49 @@ public class Player : Entity
         deadState = new Player_DeadState(this, stateMachine, "dead");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
     }
+    protected override void Start()
+    {
+        base.Start();
+        stateMachine.Initialize(idleState);
+    }
+
+    protected override IEnumerator SlowDownEntityCoroutine(float duration, float slowMultiplier)
+    {
+        float originalSpeed = moveSpeed;
+        float originalAnimSpeed = anim.speed;
+        float originalJumpForce = jumpForce;
+        float originalDashSpeed = dashSpeed;
+        Vector2 originalWallJumpForce = wallJumpForce;
+        Vector2 originalJumpAttackVelocity = jumpAttackVelocity;
+        Vector2[] originalAttackVelocity = attackVelocity;
+
+        float speedMultiplier = 1 / slowMultiplier;
+
+        moveSpeed *= speedMultiplier;
+        anim.speed *= speedMultiplier;
+        jumpForce *= speedMultiplier;
+        dashSpeed *= speedMultiplier;
+        wallJumpForce *= speedMultiplier;
+        jumpAttackVelocity *= speedMultiplier;
+        for (int i = 0; i < attackVelocity.Length; i++)
+        {
+            attackVelocity[i] *= speedMultiplier;
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalSpeed;
+        anim.speed = originalAnimSpeed;
+        jumpForce = originalJumpForce;
+        dashSpeed = originalDashSpeed;
+        wallJumpForce = originalWallJumpForce;
+        jumpAttackVelocity = originalJumpAttackVelocity;
+        for (int i = 0; i < attackVelocity.Length; i++)
+        {
+            attackVelocity[i] = originalAttackVelocity[i];
+        }
+
+    }
 
     public override void EntityDeath()
     {
@@ -70,11 +113,6 @@ public class Player : Entity
         stateMachine.ChangeState(deadState);
     }
 
-    protected override void Start()
-    {
-        base.Start();
-        stateMachine.Initialize(idleState);
-    }
 
     public void EnterAttackStateWithDelay()
     {
