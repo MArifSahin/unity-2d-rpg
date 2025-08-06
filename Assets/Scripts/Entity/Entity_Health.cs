@@ -31,7 +31,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         UpdateHealthBar();
     }
 
-    public virtual bool TakeDamage(float damage, float elementalDamage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
     {
         if (isDead) return false;
 
@@ -45,18 +45,23 @@ public class Entity_Health : MonoBehaviour, IDamageable
         float armorReduction = attackerStats ? attackerStats.GetArmorReduction() : 0f;
 
         float mitigation = stats.GetArmorMitigation(armorReduction);
-        float finalDamage = damage * (1 - mitigation);
+        float physicalDamageTaken = damage * (1 - mitigation);
 
-        Vector2 knockback = CalculateKnockBack(finalDamage, damageDealer);
-        float duration = CalculateKnockbackDuration(finalDamage);
+        float resistance = stats.GetElementalResistance(element);
+        float finalElementalDamage = elementalDamage * (1 - resistance);
 
-        entity?.ReceiveKnockback(knockback, duration);
-        entityVFX?.PlayOnDamageVFX();
-        ReduceHP(finalDamage);
-
-        
+        TakeKnockback(damageDealer, physicalDamageTaken);
+        ReduceHP(physicalDamageTaken + finalElementalDamage);
 
         return true;
+    }
+
+    private void TakeKnockback(Transform damageDealer, float physicalDamageTaken)
+    {
+        Vector2 knockback = CalculateKnockBack(physicalDamageTaken, damageDealer);
+        float duration = CalculateKnockbackDuration(physicalDamageTaken);
+
+        entity?.ReceiveKnockback(knockback, duration);
     }
 
     private bool AttackEvaded()
@@ -67,6 +72,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     protected void ReduceHP(float damage)
     {
+        entityVFX?.PlayOnDamageVFX();
         currentHP -= damage;
         UpdateHealthBar();
         if (currentHP <= 0)
