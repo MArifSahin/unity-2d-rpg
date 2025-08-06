@@ -41,8 +41,7 @@ public class Enemy : Entity
         float originalBatleMoveSpeed = battleMoveSpeed;
         float originalAnimSpeed = anim.speed;
  
-        //TODO adjust slowMultiplier
-        float speedMultiplier = 1 / slowMultiplier;
+        float speedMultiplier = 1 / (1 + slowMultiplier);
         moveSpeed *= speedMultiplier;
         battleMoveSpeed *= speedMultiplier;
         anim.speed *= speedMultiplier;
