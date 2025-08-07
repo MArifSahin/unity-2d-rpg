@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d8c7bab3755b941a4e6fbab36e7d8b, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 1500
   healthRegeneration: 0
   attackSpeed: 1
   damage: 10
@@ -27,3 +27,7 @@ MonoBehaviour:
   fireResistance: 0
   iceResistance: 0
   lightningResistance: 0
+  strength: 0
+  agility: 0
+  intelligence: 0
+  vitality: 0

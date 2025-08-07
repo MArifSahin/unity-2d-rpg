@@ -1889,9 +1889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7527e5c1154a7f34a9f351104338e0a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultStatSetup: {fileID: 11400000, guid: 9f2a7cac539bbda45be3d01ab09fd896, type: 2}
   resources:
     maxHealth:
-      baseValue: 10000
+      baseValue: 1500
       modifiers: []
     healthRegeneration:
       baseValue: 0
@@ -1914,13 +1915,13 @@ MonoBehaviour:
       baseValue: 1
       modifiers: []
     damage:
-      baseValue: 0
+      baseValue: 10
       modifiers: []
     critPower:
-      baseValue: 0
+      baseValue: 150
       modifiers: []
     critChance:
-      baseValue: 0
+      baseValue: 0.1
       modifiers: []
     armorReduction:
       baseValue: 0
@@ -33919,6 +33920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7527e5c1154a7f34a9f351104338e0a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultStatSetup: {fileID: 11400000, guid: 09f6c698e59122d41966289f0b805d70, type: 2}
   resources:
     maxHealth:
       baseValue: 10000
