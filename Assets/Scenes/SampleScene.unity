@@ -242,7 +242,7 @@ MonoBehaviour:
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   burnVFX: {r: 1, g: 0, b: 0, a: 1}
   chillVFX: {r: 0, g: 1, b: 1, a: 1}
-  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  electrifyVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &57004617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,6 +1831,7 @@ MonoBehaviour:
     m_Bits: 128
   defaultDuration: 3
   chillSlowMultiplier: 6.43
+  electrifyChargeBuildUp: 0.4
 --- !u!114 &865392142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,7 +1871,7 @@ MonoBehaviour:
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   burnVFX: {r: 1, g: 0.31728896, b: 0.11792451, a: 1}
   chillVFX: {r: 0, g: 1, b: 1, a: 1}
-  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  electrifyVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 1124075211}
 --- !u!114 &865392144
 MonoBehaviour:
@@ -1933,6 +1934,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92730e461c2f5514e98c4fd9b6689254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStrikeVFX: {fileID: 8690958088443239092, guid: bb3c483cb23c0504cbe39e2623283411, type: 3}
+  currentCharge: 0
+  maxCharge: 1
 --- !u!1 &865919288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,7 +2229,7 @@ MonoBehaviour:
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   burnVFX: {r: 1, g: 0, b: 0, a: 1}
   chillVFX: {r: 0, g: 1, b: 1, a: 1}
-  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  electrifyVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1095942915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,7 +2758,7 @@ MonoBehaviour:
   originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   burnVFX: {r: 1, g: 0, b: 0, a: 1}
   chillVFX: {r: 0, g: 1, b: 1, a: 1}
-  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  electrifyVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1393093527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14828,8 +14832,8 @@ Tilemap:
   - first: {x: 2, y: -9, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -14838,8 +14842,8 @@ Tilemap:
   - first: {x: 3, y: -9, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -15478,8 +15482,8 @@ Tilemap:
   - first: {x: 2, y: -8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -15488,8 +15492,8 @@ Tilemap:
   - first: {x: 3, y: -8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16048,8 +16052,8 @@ Tilemap:
   - first: {x: 2, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16058,8 +16062,8 @@ Tilemap:
   - first: {x: 3, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16618,8 +16622,8 @@ Tilemap:
   - first: {x: 2, y: -6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16628,8 +16632,8 @@ Tilemap:
   - first: {x: 3, y: -6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -19003,11 +19007,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7b01a1b0e4f0a4540b95f757ab6ba969, type: 2}
   - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: d657757f6d865e34598698cc1d625ed7, type: 2}
-  - m_RefCount: 117
+  - m_RefCount: 113
     m_Data: {fileID: 11400000, guid: 3899e2a6c37ef3c41a06966756179528, type: 2}
-  - m_RefCount: 1031
+  - m_RefCount: 1039
     m_Data: {fileID: 11400000, guid: b12eb5f5784f75742957925b724a064d, type: 2}
-  - m_RefCount: 64
+  - m_RefCount: 60
     m_Data: {fileID: 11400000, guid: e31855eb99c8ca0428ba1fe62977c03f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 81f1f0e047ce75e48a3acb3819bdbedc, type: 2}
@@ -19046,11 +19050,11 @@ Tilemap:
     m_Data: {fileID: 1661453547176358083, guid: e2c9bb87121e378479a53802c413b72b, type: 3}
   - m_RefCount: 12
     m_Data: {fileID: 7835527851534414817, guid: 66ba225c270172a4789ab2e120d1fd17, type: 3}
-  - m_RefCount: 117
+  - m_RefCount: 113
     m_Data: {fileID: 1597938024306103233, guid: 91141dcb594c17d4fb5f0467585172b3, type: 3}
-  - m_RefCount: 1031
+  - m_RefCount: 1039
     m_Data: {fileID: -2720922381176439266, guid: 222ec9217207bef499c5a2f48ff80a80, type: 3}
-  - m_RefCount: 64
+  - m_RefCount: 60
     m_Data: {fileID: 297748541739720979, guid: 4c100c3b8d151f64790d01e22a9cd70c, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -33991,7 +33995,7 @@ MonoBehaviour:
   originalHitVfxColor: {r: 1, g: 0, b: 0, a: 1}
   burnVFX: {r: 1, g: 0.26166108, b: 0, a: 1}
   chillVFX: {r: 0, g: 1, b: 1, a: 1}
-  shockVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  electrifyVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1792038054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34012,6 +34016,7 @@ MonoBehaviour:
     m_Bits: 256
   defaultDuration: 3
   chillSlowMultiplier: 0.9
+  electrifyChargeBuildUp: 0.4
   counterRecovery: 0.1
 --- !u!114 &1792038055
 MonoBehaviour:
@@ -34048,9 +34053,9 @@ MonoBehaviour:
     fireDamage:
       baseValue: 0
     iceDamage:
-      baseValue: 100
-    lightningDamage:
       baseValue: 0
+    lightningDamage:
+      baseValue: 100
   defense:
     armor:
       baseValue: 0
@@ -34074,6 +34079,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92730e461c2f5514e98c4fd9b6689254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStrikeVFX: {fileID: 8690958088443239092, guid: bb3c483cb23c0504cbe39e2623283411, type: 3}
+  currentCharge: 0
+  maxCharge: 1
 --- !u!1 &1827407065
 GameObject:
   m_ObjectHideFlags: 0

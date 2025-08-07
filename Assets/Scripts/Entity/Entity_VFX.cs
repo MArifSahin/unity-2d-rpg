@@ -22,7 +22,7 @@ public class Entity_VFX : MonoBehaviour
     //give hex values for colors
     [SerializeField] private Color burnVFX = Color.red; // Warm orange
     [SerializeField] private Color chillVFX = Color.cyan;  
-    [SerializeField] private Color shockVFX = Color.yellow;
+    [SerializeField] private Color electrifyVFX = Color.yellow;
 
     private void Awake()
     {
@@ -44,8 +44,15 @@ public class Entity_VFX : MonoBehaviour
         }
         else if (element == ElementType.Lightning)
         {
-            StartCoroutine(PlayStatusVFXCo(duration, shockVFX));
+            StartCoroutine(PlayStatusVFXCo(duration, electrifyVFX));
         }
+    }
+
+    public void StopAllVFX()
+    {
+        StopAllCoroutines();
+        sr.color = Color.white; // Reset color after stopping all VFX
+        sr.material = originalMaterial; // Reset material after stopping all VFX
     }
 
     private IEnumerator PlayStatusVFXCo(float duration, Color effectColor)
@@ -95,7 +102,7 @@ public class Entity_VFX : MonoBehaviour
                 hitVfxColor = chillVFX;
                 break;
             case ElementType.Lightning:
-                hitVfxColor = shockVFX;
+                hitVfxColor = electrifyVFX;
                 break;
             default:
                 hitVfxColor = originalHitVfxColor; // Reset to original color for any other
