@@ -1832,6 +1832,8 @@ MonoBehaviour:
   defaultDuration: 3
   chillSlowMultiplier: 6.43
   electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
 --- !u!114 &865392142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,8 +1846,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1967085f219e4899e4d9007ea89ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
+  currentHealth: 0
   isDead: 0
+  regenerationInterval: 1
+  canRegenerateHealth: 1
   knockbackPower: {x: 2.5, y: 2.5}
   heavyDamageKnockbackPower: {x: 7, y: 7}
   knockbackDuration: 0.2
@@ -1885,8 +1889,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7527e5c1154a7f34a9f351104338e0a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth:
-    baseValue: 10000
+  resources:
+    maxHealth:
+      baseValue: 10000
+    healthRegeneration:
+      baseValue: 0
   major:
     strength:
       baseValue: 0
@@ -33968,8 +33975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5018910bafe931b4eb53f266562fc8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
+  currentHealth: 0
   isDead: 0
+  regenerationInterval: 1
+  canRegenerateHealth: 1
   knockbackPower: {x: 2.5, y: 2.5}
   heavyDamageKnockbackPower: {x: 7, y: 7}
   knockbackDuration: 0.2
@@ -34017,6 +34026,8 @@ MonoBehaviour:
   defaultDuration: 3
   chillSlowMultiplier: 0.9
   electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
   counterRecovery: 0.1
 --- !u!114 &1792038055
 MonoBehaviour:
@@ -34030,8 +34041,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7527e5c1154a7f34a9f351104338e0a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth:
-    baseValue: 10000
+  resources:
+    maxHealth:
+      baseValue: 10000
+    healthRegeneration:
+      baseValue: 0
   major:
     strength:
       baseValue: 0
