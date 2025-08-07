@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
 {
+    public Stat_SetupSO defaultStatSetup;
+
     public Stat_Resources resources;
     public Stat_MajorGroup major;
     public Stat_OffenseGroup offense;
@@ -187,5 +189,40 @@ public class Entity_Stats : MonoBehaviour
             default:
                 throw new System.ArgumentOutOfRangeException(nameof(statType), statType, null);
         }
+    }
+
+    [ContextMenu("Apply Default Stat Setup")]
+    public void ApplyDefaultStatSetup()
+    {
+        if (defaultStatSetup == null)
+        {
+            Debug.LogError("Stat Setup is not assigned in Entity_Stats.");
+            return;
+        }
+
+        resources.maxHealth.SetBaseValue(defaultStatSetup.maxHealth);
+        resources.healthRegeneration.SetBaseValue(defaultStatSetup.healthRegeneration);
+
+        offense.attackSpeed.SetBaseValue(defaultStatSetup.attackSpeed);
+        offense.damage.SetBaseValue(defaultStatSetup.damage);
+        offense.critChance.SetBaseValue(defaultStatSetup.critChance);
+        offense.critPower.SetBaseValue(defaultStatSetup.critPower);
+        offense.armorReduction.SetBaseValue(defaultStatSetup.armorReduction);
+
+        offense.fireDamage.SetBaseValue(defaultStatSetup.fireDamage);
+        offense.iceDamage.SetBaseValue(defaultStatSetup.iceDamage);
+        offense.lightningDamage.SetBaseValue(defaultStatSetup.lightningDamage);
+
+        defense.armor.SetBaseValue(defaultStatSetup.armor);
+        defense.evasion.SetBaseValue(defaultStatSetup.evasion);
+
+        defense.fireResistance.SetBaseValue(defaultStatSetup.fireResistance);
+        defense.iceResistance.SetBaseValue(defaultStatSetup.iceResistance);
+        defense.lightningResistance.SetBaseValue(defaultStatSetup.lightningResistance);
+
+        major.strength.SetBaseValue(defaultStatSetup.strength);
+        major.agility.SetBaseValue(defaultStatSetup.agility);
+        major.intelligence.SetBaseValue(defaultStatSetup.intelligence);
+        major.vitality.SetBaseValue(defaultStatSetup.vitality);
     }
 }
