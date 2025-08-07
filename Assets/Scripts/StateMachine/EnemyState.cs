@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class EnemyState : EntityState
@@ -10,6 +11,7 @@ public class EnemyState : EntityState
 
         rb = enemy.rb;
         anim = enemy.anim;
+        stats = enemy.stats;
     }
 
     public override void UpdateAnimationParameters()
