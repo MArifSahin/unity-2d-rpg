@@ -117,7 +117,7 @@ public class Entity_Stats : MonoBehaviour
     public float GetArmorReduction()
     {
         float finalReduction = offense.armorReduction.GetValue() / 100f; // Convert armor reduction to a percentage
-        
+
         return finalReduction;
     }
 
@@ -140,5 +140,52 @@ public class Entity_Stats : MonoBehaviour
 
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap);
         return finalEvasion;
+    }
+
+    public Stat GetStatByType(Stat_Type statType)
+    {
+        switch (statType)
+        {
+            case Stat_Type.MaxHealth:
+                return resources.maxHealth;
+            case Stat_Type.HealthRegeneration:
+                return resources.healthRegeneration;
+            case Stat_Type.Strength:
+                return major.strength;
+            case Stat_Type.Intelligence:
+                return major.intelligence;
+            case Stat_Type.Agility:
+                return major.agility;
+            case Stat_Type.Vitality:
+                return major.vitality;
+            case Stat_Type.AttackSpeed:
+                return offense.attackSpeed;
+            case Stat_Type.Damage:
+                return offense.damage;
+            case Stat_Type.CritChance:
+                return offense.critChance;
+            case Stat_Type.CritPower:
+                return offense.critPower;
+            case Stat_Type.Armor:
+                return defense.armor;
+            case Stat_Type.ArmorReduction:
+                return offense.armorReduction;
+            case Stat_Type.FireDamage:
+                return offense.fireDamage;
+            case Stat_Type.IceDamage:
+                return offense.iceDamage;
+            case Stat_Type.LightningDamage:
+                return offense.lightningDamage;
+            case Stat_Type.FireResistance:
+                return defense.fireResistance;
+            case Stat_Type.IceResistance:
+                return defense.iceResistance;
+            case Stat_Type.LightningResistance:
+                return defense.lightningResistance;
+            case Stat_Type.Evasion:
+                return defense.evasion;
+            default:
+                throw new System.ArgumentOutOfRangeException(nameof(statType), statType, null);
+        }
     }
 }
