@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 295513392}
   - component: {fileID: 295513393}
   m_Layer: 5
-  m_Name: UI_TreeNode
+  m_Name: UI_TreeNode_Time Echo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,8 +719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a188a2828ff7e564ba92fafea524769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 6bb0e1526c685c646b34775d5835bab0, type: 2}
+  skillName: Time Echo
   skillIcon: {fileID: 1037023898}
-  skillLockedColor: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
+  lockedColorHex: '#9F9797'
   isUnlocked: 0
   isLocked: 0
 --- !u!1 &317265068

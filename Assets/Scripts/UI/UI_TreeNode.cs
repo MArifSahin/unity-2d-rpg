@@ -5,11 +5,22 @@ using UnityEngine.UI;
 
 public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    [SerializeField] private Skill_DataSO skillData;
+    [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
     [SerializeField] private string lockedColorHex = "#9F9797";
     private Color lastColor;
     public bool isUnlocked;
     public bool isLocked;
+
+    void OnValidate()
+    {
+        if (!skillData) return;
+        skillName = skillData.skillName;
+        skillIcon.sprite = skillData.icon;
+        gameObject.name = "UI_TreeNode_" + skillName;
+
+    }
 
     private void Awake()
     {
@@ -22,6 +33,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         UpdateIconColor(Color.white);
         //Find Player_SkillManager
         //Unlock skill on skill manager
+        //skill manager unlock skill from skill data skill type
     }
 
     private bool CanBeUnlocked()
