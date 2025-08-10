@@ -892,7 +892,7 @@ MonoBehaviour:
   connectionsDetails:
   - childNode: {fileID: 891806327}
     directionType: 3
-    length: 229
+    length: 237
   connections:
   - {fileID: 642812462}
 --- !u!1 &317265068
@@ -1838,7 +1838,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 229, y: 10}
+  m_SizeDelta: {x: 237, y: 10}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &834484418
 MonoBehaviour:
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2208b68e59e7d144b6f8c5c399e7c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillTooltip: {fileID: 0}
+  skillTooltip: {fileID: 2133852004}
 --- !u!1 &891806324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 376.1654, y: 79.36542}
+  m_AnchoredPosition: {x: 371.21558, y: 74.41571}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891806326
@@ -2066,10 +2066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a98599c505e9ac4c90ef35a4e566069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionsDetails:
-  - childNode: {fileID: 0}
-    directionType: 0
-    length: 0
+  connectionsDetails: []
   connections: []
 --- !u!1 &893684046
 GameObject:
@@ -3313,7 +3310,7 @@ GameObject:
   - component: {fileID: 1501215611}
   - component: {fileID: 1501215610}
   m_Layer: 5
-  m_Name: SkillName (2)
+  m_Name: SkillRequirement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34864,6 +34861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2133852002}
   - component: {fileID: 2133852003}
+  - component: {fileID: 2133852004}
   m_Layer: 5
   m_Name: UI_SkillTooltip
   m_TagString: Untagged
@@ -34908,6 +34906,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 300, y: 20}
+--- !u!114 &2133852004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133852001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d9d17508365b14f95495270d29b353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 300, y: 20}
+  skillName: {fileID: 1356377241}
+  skillDescription: {fileID: 893684048}
+  skillRequirement: {fileID: 1501215610}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
