@@ -3,7 +3,7 @@ using UnityEngine;
 public class UI_Tooltip : MonoBehaviour
 {
     private RectTransform tooltipRectTransform;
-    [SerializeField] private Vector2 offset = new Vector2(300,20);
+    [SerializeField] private Vector2 offset = new Vector2(300, 20);
 
     protected virtual void Awake()
     {
@@ -47,5 +47,10 @@ public class UI_Tooltip : MonoBehaviour
         }
 
         tooltipRectTransform.position = targetPosition;
+    }
+
+    protected string GetColoredText(string color, string text)
+    {
+        return $"<color={color}>{text}</color>";
     }
 }

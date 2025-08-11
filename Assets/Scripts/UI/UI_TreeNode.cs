@@ -106,9 +106,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (!(isUnlocked || isLocked))
         {
-            Color color = Color.white * .9f;
-            color.a = 1;
-            UpdateIconColor(color);
+            ToggleNodeHighlight(true);
         }
     }
 
@@ -117,7 +115,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ui.skillTooltip.ShowTooltip(false, null);
 
         if (!(isUnlocked || isLocked))
-            UpdateIconColor(lastColor);
+            ToggleNodeHighlight(false);
+    }
+
+    private void ToggleNodeHighlight(bool highlight)
+    {
+        Color highLightColor = Color.white * .9f;
+        highLightColor.a = 1;
+        Color colorToApply = highlight ? highLightColor : lastColor;
+        UpdateIconColor(colorToApply);
+
     }
 
     private Color GetColorByHex(String hex)
@@ -125,8 +132,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ColorUtility.TryParseHtmlString(hex, out Color color);
         return color;
     }
-    
-     void OnValidate()
+
+    void OnDisable()
+    {
+        if (isLocked)
+            UpdateIconColor(GetColorByHex(lockedColorHex));
+        if (isUnlocked)
+            UpdateIconColor(Color.white);
+    }
+
+    void OnValidate()
     {
         if (!skillData) return;
         skillName = skillData.skillName;

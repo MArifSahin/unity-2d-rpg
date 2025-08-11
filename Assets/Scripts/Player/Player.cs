@@ -8,6 +8,8 @@ public class Player : Entity
     public static event Action OnPlayerDeath;
     public PlayerInputSet input { get; private set; }
 
+    private UI ui;
+
 
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
@@ -47,6 +49,7 @@ public class Player : Entity
     {
         base.Awake();
 
+        ui = FindAnyObjectByType<UI>();
         input = new PlayerInputSet();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
@@ -134,6 +137,14 @@ public class Player : Entity
 
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+
+        input.Player.ToggleSkillTreeUI.performed += ctx =>
+        {
+            if (ui != null)
+            {
+                ui.ToggleSkillTree();
+            }
+        };
     }
 
     private void OnDisable()
