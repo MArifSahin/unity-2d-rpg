@@ -17,10 +17,7 @@ public class UI_TreeConnection : MonoBehaviour
         connectionLength.sizeDelta = new Vector2(finalLength, connectionLength.sizeDelta.y);
     }
 
-    public Image GetConnectionImage()
-    {
-        return GetComponent<Image>();
-    }
+    public Image GetConnectionImage() => connectionLength.GetComponent<Image>();
 
     public Vector2 GetConnectionPoint(RectTransform rect)
     {
