@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add7ad0e654aae14587838389f2d2259, type: 3}
+  m_Name: Skill data - Dejavu
+  m_EditorClassIdentifier: 
+  cost: 0
+  skillName: Dejavu
+  description: 'Create a time echo on arrival.
+
+    (Inherits all upgrades of Time
+    Echo ability)'
+  icon: {fileID: -1925740920, guid: 5ab83f0293188124cb5cea8d429ff788, type: 3}

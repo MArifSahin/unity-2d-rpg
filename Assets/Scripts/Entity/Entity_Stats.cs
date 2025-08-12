@@ -144,47 +144,47 @@ public class Entity_Stats : MonoBehaviour
         return finalEvasion;
     }
 
-    public Stat GetStatByType(Stat_Type statType)
+    public Stat GetStatByType(StatType statType)
     {
         switch (statType)
         {
-            case Stat_Type.MaxHealth:
+            case StatType.MaxHealth:
                 return resources.maxHealth;
-            case Stat_Type.HealthRegeneration:
+            case StatType.HealthRegeneration:
                 return resources.healthRegeneration;
-            case Stat_Type.Strength:
+            case StatType.Strength:
                 return major.strength;
-            case Stat_Type.Intelligence:
+            case StatType.Intelligence:
                 return major.intelligence;
-            case Stat_Type.Agility:
+            case StatType.Agility:
                 return major.agility;
-            case Stat_Type.Vitality:
+            case StatType.Vitality:
                 return major.vitality;
-            case Stat_Type.AttackSpeed:
+            case StatType.AttackSpeed:
                 return offense.attackSpeed;
-            case Stat_Type.Damage:
+            case StatType.Damage:
                 return offense.damage;
-            case Stat_Type.CritChance:
+            case StatType.CritChance:
                 return offense.critChance;
-            case Stat_Type.CritPower:
+            case StatType.CritPower:
                 return offense.critPower;
-            case Stat_Type.Armor:
+            case StatType.Armor:
                 return defense.armor;
-            case Stat_Type.ArmorReduction:
+            case StatType.ArmorReduction:
                 return offense.armorReduction;
-            case Stat_Type.FireDamage:
+            case StatType.FireDamage:
                 return offense.fireDamage;
-            case Stat_Type.IceDamage:
+            case StatType.IceDamage:
                 return offense.iceDamage;
-            case Stat_Type.LightningDamage:
+            case StatType.LightningDamage:
                 return offense.lightningDamage;
-            case Stat_Type.FireResistance:
+            case StatType.FireResistance:
                 return defense.fireResistance;
-            case Stat_Type.IceResistance:
+            case StatType.IceResistance:
                 return defense.iceResistance;
-            case Stat_Type.LightningResistance:
+            case StatType.LightningResistance:
                 return defense.lightningResistance;
-            case Stat_Type.Evasion:
+            case StatType.Evasion:
                 return defense.evasion;
             default:
                 throw new System.ArgumentOutOfRangeException(nameof(statType), statType, null);

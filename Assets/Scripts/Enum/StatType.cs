@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum Stat_Type
+public enum StatType
 {
     MaxHealth,
     HealthRegeneration,

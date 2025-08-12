@@ -4,9 +4,14 @@ public class UI_SkillTree : MonoBehaviour
 {
     [SerializeField] private int skillPoint;
     [SerializeField] private UI_TreeConnectHandler[] parentNodes;
+    public Player_SkillManager playerSkillManager;
 
+    private void Awake() {
+        playerSkillManager = FindAnyObjectByType<Player_SkillManager>();
+    }
 
-    private void Start() {
+    private void Start()
+    {
         UpdateAllConnections();
     }
 

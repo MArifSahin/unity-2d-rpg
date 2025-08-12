@@ -5,10 +5,10 @@ using UnityEngine;
 [Serializable]
 public class Buff
 {   
-    public Stat_Type type; // Example buff type
+    public StatType type; // Example buff type
     public float value = 5f; // Example value for the buff
 
-    public Buff(Stat_Type buffType, float buffValue)
+    public Buff(StatType buffType, float buffValue)
     {
         type = buffType;
         value = buffValue;
