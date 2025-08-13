@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add7ad0e654aae14587838389f2d2259, type: 3}
   m_Name: Skill data - Found Fragment
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 2
+  skillType: 0
+  upgradeData:
+    skillUpgradeType: 4
+    cooldown: 3
   skillName: Found Fragment"
   description: 'Create a time shard on arrival.
 

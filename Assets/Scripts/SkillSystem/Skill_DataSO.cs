@@ -6,7 +6,7 @@ public class Skill_DataSO : ScriptableObject
 {
     public int cost;
     public SkillType skillType;
-    public SkillUpgradeType skillUpgradeType;
+    public UpgradeData upgradeData;
 
     [Header("Skill Description")]
     public string skillName;
@@ -15,4 +15,11 @@ public class Skill_DataSO : ScriptableObject
     public Sprite icon;
 
     //skill type that you should unlock
+}
+
+[System.Serializable]
+public class UpgradeData
+{
+    public SkillUpgradeType skillUpgradeType;
+    public float cooldown;
 }

@@ -13,12 +13,15 @@ public class Skill_Base : MonoBehaviour
         lastUsedTime -= cooldown;
     }
 
-    public void SetSkillUpgradeType(SkillUpgradeType upgradeType)
+    public void SetSkillUpgradeType(UpgradeData upgrade)
     {
-        skillUpgradeType = upgradeType;
+        skillUpgradeType = upgrade.skillUpgradeType;
+        cooldown = upgrade.cooldown;
     }
 
     public bool CanUseSkill() => !OnCooldown();
+
+    protected bool Unlocked(SkillUpgradeType upgradeToCheck) => skillUpgradeType == upgradeToCheck;
 
     private bool OnCooldown() => Time.time < lastUsedTime + cooldown;
 

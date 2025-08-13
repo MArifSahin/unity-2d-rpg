@@ -2798,8 +2798,8 @@ RectTransform:
   - {fileID: 320193257}
   - {fileID: 1682642668}
   - {fileID: 171664259}
-  - {fileID: 1232932015}
   - {fileID: 1578530443}
+  - {fileID: 1232932015}
   m_Father: {fileID: 1291946972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5168,6 +5168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127bf76beb2b7204dad2074b3bf997af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillType: 0
+  skillUpgradeType: 0
   cooldown: 3
 --- !u!1 &1095942915
 GameObject:
@@ -5418,10 +5420,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 295513392}
-  - {fileID: 891806325}
-  - {fileID: 75738558}
   - {fileID: 163220191}
   - {fileID: 2109312973}
+  - {fileID: 891806325}
+  - {fileID: 75738558}
   m_Father: {fileID: 1291946972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5516,7 +5518,7 @@ GameObject:
   - component: {fileID: 1232932013}
   - component: {fileID: 1232932014}
   m_Layer: 5
-  m_Name: UI_TreeNode_Found Fragment
+  m_Name: UI_TreeNode_Found Fragment"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5859,6 +5861,7 @@ MonoBehaviour:
   parentNodes:
   - {fileID: 320193256}
   - {fileID: 295513394}
+  playerSkillManager: {fileID: 0}
 --- !u!1 &1300496944
 GameObject:
   m_ObjectHideFlags: 0
@@ -38965,11 +38968,11 @@ GameObject:
   - component: {fileID: 1792038054}
   - component: {fileID: 1792038049}
   - component: {fileID: 1792038050}
-  - component: {fileID: 1792038053}
   - component: {fileID: 1792038052}
   - component: {fileID: 1792038055}
   - component: {fileID: 1792038056}
   - component: {fileID: 1792038057}
+  - component: {fileID: 1792038058}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -39118,27 +39121,6 @@ MonoBehaviour:
   knockbackDuration: 0.2
   heavyKnockbackDuration: 0.5
   heavyDamageThreshold: 0.3
---- !u!114 &1792038053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792038046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460dc014758a51840820d18f8885d28d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
-  onDamageVFXDuration: 0.15
-  hitVfxColor: {r: 0.5820202, g: 0.6037736, b: 0.093983635, a: 1}
-  hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
-  critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
-  originalHitVfxColor: {r: 1, g: 0, b: 0, a: 1}
-  burnVFX: {r: 1, g: 0.26166108, b: 0, a: 1}
-  chillVFX: {r: 0, g: 1, b: 1, a: 1}
-  electrifyVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1792038054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39264,6 +39246,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3b9cd0f1534cc4986ea885cee6b5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1792038058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792038046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb99ad70c6f2af04eb93b20913a933bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDamageMaterial: {fileID: 2100000, guid: e8840afdf8afeb446870c8606707e39f, type: 2}
+  onDamageVFXDuration: 0.15
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVFXPrefab: {fileID: 4819488388441335122, guid: 3633fa39345bee14ea2d1ff528be6049, type: 3}
+  critHixVFXPrefab: {fileID: 7983859981223654259, guid: 01da927a528b5c6498c1ef3b80051596, type: 3}
+  originalHitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  burnVFX: {r: 1, g: 0, b: 0, a: 1}
+  chillVFX: {r: 0, g: 0.66519666, b: 1, a: 1}
+  electrifyVFX: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  imageEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 5042008951438358533, guid: 25255b1fa276522439dde857158bf5d5, type: 3}
 --- !u!1 &1797248142
 GameObject:
   m_ObjectHideFlags: 0

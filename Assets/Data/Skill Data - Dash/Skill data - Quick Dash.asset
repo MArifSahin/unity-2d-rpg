@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add7ad0e654aae14587838389f2d2259, type: 3}
   m_Name: Skill data - Quick Dash
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 1
+  skillType: 0
+  upgradeData:
+    skillUpgradeType: 0
+    cooldown: 3
   skillName: Quick Dash
   description: 'Dash to avoid attacks.
 
