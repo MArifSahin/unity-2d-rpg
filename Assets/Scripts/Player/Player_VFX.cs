@@ -32,9 +32,8 @@ public class Player_VFX : Entity_VFX
 
     private void CreateImageEcho()
     {
+        //TODO fix transform position
         GameObject imageEcho = Instantiate(imageEchoPrefab, transform.position, transform.rotation);
         imageEcho.GetComponentInChildren<SpriteRenderer>().sprite = sr.sprite;
-        // Ensure the echo is not parented to anything that moves vertically
-        imageEcho.transform.parent = null;
     }
 }
